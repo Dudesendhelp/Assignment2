@@ -53,7 +53,7 @@ void FileStorage::loadAssignments(TaskManager &ob)
           completed = true;
         else
           completed = false;
-        ob.addAssignment(id, title, completed, subject, deadline);
+        ob.addAssignmnet(id,title,completed,subject,deadline);
       }
       cout << "Completed reading the file" << endl;
       file.close();

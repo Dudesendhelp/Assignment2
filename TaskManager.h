@@ -9,10 +9,10 @@ class TaskManager
 private:
   std::vector<Assignment> assignments;
 public:
-  void addAssignment(std::string id, std::string title, bool completed, std::string subject, std::string deadline);
+  void addAssignmnet(std::string id,std::string title,bool completed,std::string subject,std::string deadline);
+  void addAssignment();
   void listAssignments();
-  void markAssignmentComplete(std::string id);
+  void markAssignmentComplete();
   friend class FileStorage;
 };
-
 #endif

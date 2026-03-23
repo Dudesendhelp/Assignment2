@@ -1,5 +1,6 @@
 #include "Task.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Task::Task(string id, string title, bool completed)
@@ -12,9 +13,9 @@ Task::Task(string id, string title, bool completed)
 
 void Task::display()
 {
-    cout << "ID: " << id << endl;
-    cout << "Title: " << title << endl;
-    cout << "Status: " << (completed ? "Completed" : "Pending") << endl;
+    cout << left << setw(10) << id 
+         << " | " << setw(20) << title 
+         << " | " << setw(12) << (completed ? "Completed" : "Pending");
 }
 
 

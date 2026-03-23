@@ -2,6 +2,7 @@
 #include "Task.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Assignment ::Assignment(std::string id, std::string title, bool completed, std::string subject, std::string deadline) : Task(id, title, completed)
@@ -12,9 +13,11 @@ Assignment ::Assignment(std::string id, std::string title, bool completed, std::
 }
 
 void Assignment::display() 
-  {
-    cout << "The subject is " << this->subject << " and the deadline is " << this->deadline << endl;
-  }
+{
+    Task::display();
+    cout << " | " << left << setw(15) << subject 
+         << " | " << left << setw(15) << deadline << endl;
+}
 
 std::string Assignment ::getSubject()
 {
