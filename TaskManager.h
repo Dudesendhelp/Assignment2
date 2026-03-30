@@ -10,7 +10,7 @@ private:
   std::vector<Assignment> assignments;
 public:
   void addAssignmnet(std::string id,std::string title,bool completed,std::string subject,std::string deadline);
-  void addAssignment();
+  void addAssignment(int a=-1);
   void listAssignments();
   void markAssignmentComplete();
   friend class FileStorage;

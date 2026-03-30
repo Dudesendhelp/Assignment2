@@ -11,8 +11,11 @@ void TaskManager::addAssignmnet(std::string id,std::string title,bool completed,
   assignments.push_back(Assignment(id, title, completed, subject, deadline));
 }
 
-void TaskManager::addAssignment()
+void TaskManager::addAssignment(int a)
 {
+  if(a==-1)
+  {
+    
   string title;
       string id;
       bool completed;
@@ -25,15 +28,22 @@ void TaskManager::addAssignment()
       cin>>subject;
       cin>>deadline;
   assignments.push_back(Assignment(id, title, completed, subject, deadline));
- 
+
+  
  cout<<"Do you want to save the assignment?(Press any key to save/Press 0 to cancel)"<<endl;
  char in;
  cin>>in;
+ 
  if(in!='0')
  {
       FileStorage f;
       f.saveAssignments(*this);
  }
+}
+else{
+   FileStorage f;
+      f.saveAssignments(*this);
+}
 
 }
 
@@ -50,17 +60,19 @@ void TaskManager::listAssignments()
     i.display();
   }
   cout<<"Load Assignments saved in memory?(Press any key to load/Press 0 to not load)"<<endl;
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
   char in;
   cin>>in;
-  if(in!=0)
-  {
+  if(in!='0')
+  {  cin.ignore(numeric_limits<streamsize>::max(), '\n');
     FileStorage f;
     f.loadAssignments(*this);
-  }
+  
    for (auto &i : assignments)
   {
     i.display();
   }
+}
 
 }
 
@@ -81,6 +93,8 @@ void TaskManager::markAssignmentComplete()
   if(found)
   {
     cout << "Task with id " << id << " marked as complete." << endl;
+    FileStorage f;
+    f.saveAssignments(*this);
   }
   else
   {
