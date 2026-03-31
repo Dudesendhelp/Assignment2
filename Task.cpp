@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-Task::Task(string id, string title, bool completed)
+Task::Task(int id, string title, bool completed)
 {
     this->id = id;
     this->title = title;
@@ -19,7 +19,7 @@ void Task::display()
 }
 
 
-string Task::getId()
+int Task::getId()
 {
     return id;
 }

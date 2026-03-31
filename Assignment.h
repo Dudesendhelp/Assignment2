@@ -10,7 +10,7 @@ private:
   std::string deadline;
 public:
   void display() override;
-  Assignment(std::string id, std::string title, bool completed, std::string subject, std::string deadline);
+  Assignment(int id, std::string title, bool completed, std::string subject, std::string deadline);
   std::string getSubject();
   std::string getDeadline();
 };

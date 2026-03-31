@@ -5,7 +5,7 @@
 #include <iomanip>
 using namespace std;
 
-Assignment ::Assignment(std::string id, std::string title, bool completed, std::string subject, std::string deadline) : Task(id, title, completed)
+Assignment ::Assignment(int id, std::string title, bool completed, std::string subject, std::string deadline) : Task(id, title, completed)
 {
 
   this->subject = subject;

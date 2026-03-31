@@ -7,13 +7,13 @@
 class Task
 {
 protected:
-  std::string id;
+  int id;
   std::string title;
   bool completed;
 public:
-  Task(std::string id, std::string title, bool completed);
+  Task(int id, std::string title, bool completed);
   virtual void display();
-  std::string getId();
+  int getId();
   std::string getTitle();
   void markComplete();
   bool isCompleted();

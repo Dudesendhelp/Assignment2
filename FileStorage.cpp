@@ -41,10 +41,12 @@ void FileStorage::loadAssignments(TaskManager &ob)
       {
         stringstream ss(line);
 
-        string id, title, subject, deadline;
+        string idStr;
+        string title, subject, deadline;
         bool completed;
         string com;
-        getline(ss, id, '|');
+        getline(ss, idStr, '|');
+        int id = stoi(idStr);
         getline(ss, title, '|');
         getline(ss, com, '|');
         getline(ss, subject, '|');
@@ -53,9 +55,8 @@ void FileStorage::loadAssignments(TaskManager &ob)
           completed = true;
         else
           completed = false;
-        ob.addAssignmnet(id,title,completed,subject,deadline);
+        ob.assignments.push_back(Assignment(id, title, completed, subject, deadline));
       }
-      cout << "Completed reading the file" << endl;
       file.close();
     }
     else
